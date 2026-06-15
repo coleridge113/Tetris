@@ -14,10 +14,6 @@ int main()
 
         BeginDrawing();
         ClearBackground(darkBlue);
-        for (auto row : grid.grid[0]) 
-        {
-            grid.grid[0][row] = 2;
-        }
         grid.Draw();
         EndDrawing();
     }
