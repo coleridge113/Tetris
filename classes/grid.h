@@ -2,6 +2,7 @@
 
 #include "raylib.h"
 #include <vector>
+
 class Grid
 {
     public:
@@ -16,5 +17,4 @@ class Grid
         int numRows;
         int numCols;
         int cellSize;
-        std::vector<Color> colors;
 };
