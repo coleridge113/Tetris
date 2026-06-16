@@ -67,7 +67,7 @@ void Game::HandleInput()
 void Game::MoveBlockLeft()
 {
     currentBlock.Move(0, -1);
-    if (IsBlockOutside())
+    if (IsBlockOutside() || BlockFits() == false)
     {
         currentBlock.Move(0, 1);
     }
@@ -76,7 +76,7 @@ void Game::MoveBlockLeft()
 void Game::MoveBlockRight()
 {
     currentBlock.Move(0, 1);
-    if (IsBlockOutside())
+    if (IsBlockOutside() || BlockFits() == false)
     {
         currentBlock.Move(0, -1);
     }
@@ -85,7 +85,7 @@ void Game::MoveBlockRight()
 void Game::MoveBlockDown()
 {
     currentBlock.Move(1, 0);
-    if (IsBlockOutside())
+    if (IsBlockOutside() || BlockFits() == false)
     {
         currentBlock.Move(-1, 0);
         LockBlock();
@@ -119,7 +119,22 @@ bool Game::IsBlockOutside()
     return false;
 }
 
-void Game::LockBlock() {
+bool Game::BlockFits()
+{
+    const auto& tiles = currentBlock.GetCellPositions();
+    for (const auto& item : tiles)
+    {
+        if (grid.IsCellEmpty(item.row, item.col) == false)
+        {
+            return false;
+        }
+    }
+    return true;
+
+}
+
+void Game::LockBlock() 
+{
     const auto& cells = currentBlock.GetCellPositions();
     for (const auto& cell : cells)
     {

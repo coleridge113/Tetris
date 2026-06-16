@@ -24,5 +24,6 @@ class Game
         Block currentBlock;
         Block nextBlock;
         bool IsBlockOutside();
+        bool BlockFits();
         void LockBlock();
 };
