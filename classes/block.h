@@ -30,6 +30,7 @@ class Block
         std::map<int, std::vector<Position>> cells;
         void Draw();
         void Rotate();
+        void UndoRotate();
         void Move(int row, int col);
         std::vector<Position> GetCellPositions();
 

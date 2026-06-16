@@ -34,10 +34,19 @@ void Block::Draw()
 
 void Block::Rotate()
 {
-    if (rotationState < cells.size() - 1) {
-        ++rotationState;
-    } else {
+    ++rotationState;
+    if (rotationState > cells.size() - 1)
+    {
         rotationState = 0;
+    }
+}
+
+void Block::UndoRotate()
+{
+    --rotationState;
+    if (rotationState < 0)
+    {
+        rotationState = cells.size() - 1;
     }
 }
 
