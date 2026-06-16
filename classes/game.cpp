@@ -142,4 +142,5 @@ void Game::LockBlock()
     }
     grid.Print();
     GetNextBlock();
+    grid.ClearFullRows();
 }
