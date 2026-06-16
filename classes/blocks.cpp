@@ -1,122 +1,93 @@
+#include "blocks.h"
 #include "colors.h"
-#include "block.h"
-#include "position.h"
 
-class LBlock : public Block
+LBlock::LBlock()
 {
-    public:
-        LBlock()
-        {
-            id = GetBlockId(BlockType::LBlock);
-            color = GetCellColor(CellType::Orange);
+    id = GetBlockId(BlockType::LBlock);
+    color = GetCellColor(CellType::Orange);
 
-            cells[0] = { Position{0, 2}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
-            cells[1] = { Position{0, 1}, Position{1, 1}, Position{2, 1}, Position{2, 2} };
-            cells[2] = { Position{1, 0}, Position{1, 1}, Position{1, 2}, Position{2, 0} };
-            cells[3] = { Position{0, 0}, Position{0, 1}, Position{1, 1}, Position{2, 1} };
+    cells[0] = { Position{0, 2}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
+    cells[1] = { Position{0, 1}, Position{1, 1}, Position{2, 1}, Position{2, 2} };
+    cells[2] = { Position{1, 0}, Position{1, 1}, Position{1, 2}, Position{2, 0} };
+    cells[3] = { Position{0, 0}, Position{0, 1}, Position{1, 1}, Position{2, 1} };
 
-            Move(0, 3);
-        };
-};
+    Move(0, 3);
+}
 
-class JBlock : public Block
+JBlock::JBlock()
 {
-    public:
-        JBlock()
-        {
-            id = GetBlockId(BlockType::JBlock);
-            color = GetCellColor(CellType::Blue);
+    id = GetBlockId(BlockType::JBlock);
+    color = GetCellColor(CellType::Blue);
 
-            cells[0] = { Position{0, 0}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
-            cells[1] = { Position{0, 1}, Position{0, 2}, Position{1, 1}, Position{2, 1} };
-            cells[2] = { Position{1, 0}, Position{1, 1}, Position{1, 2}, Position{2, 2} };
-            cells[3] = { Position{0, 1}, Position{1, 1}, Position{2, 0}, Position{2, 1} };
+    cells[0] = { Position{0, 0}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
+    cells[1] = { Position{0, 1}, Position{0, 2}, Position{1, 1}, Position{2, 1} };
+    cells[2] = { Position{1, 0}, Position{1, 1}, Position{1, 2}, Position{2, 2} };
+    cells[3] = { Position{0, 1}, Position{1, 1}, Position{2, 0}, Position{2, 1} };
 
-            Move(0, 3);
-        };
-};
+    Move(0, 3);
+}
 
-class IBlock : public Block
+IBlock::IBlock()
 {
-    public:
-        IBlock()
-        {
-            id = GetBlockId(BlockType::IBlock);
-            color = GetCellColor(CellType::Cyan);
+    id = GetBlockId(BlockType::IBlock);
+    color = GetCellColor(CellType::Cyan);
 
-            cells[0] = { Position{1, 0}, Position{1, 1}, Position{1, 2}, Position{1, 3} };
-            cells[1] = { Position{0, 2}, Position{1, 2}, Position{2, 2}, Position{3, 2} };
-            cells[2] = { Position{2, 0}, Position{2, 1}, Position{2, 2}, Position{2, 3} };
-            cells[3] = { Position{0, 1}, Position{1, 1}, Position{2, 1}, Position{3, 1} };
+    cells[0] = { Position{1, 0}, Position{1, 1}, Position{1, 2}, Position{1, 3} };
+    cells[1] = { Position{0, 2}, Position{1, 2}, Position{2, 2}, Position{3, 2} };
+    cells[2] = { Position{2, 0}, Position{2, 1}, Position{2, 2}, Position{2, 3} };
+    cells[3] = { Position{0, 1}, Position{1, 1}, Position{2, 1}, Position{3, 1} };
 
-            Move(0, 3);
-        };
-};
+    Move(-1, 3);
+}
 
-class OBlock : public Block
+OBlock::OBlock()
 {
-    public:
-        OBlock()
-        {
-            id = GetBlockId(BlockType::OBlock);
-            color = GetCellColor(CellType::Yellow);
+    id = GetBlockId(BlockType::OBlock);
+    color = GetCellColor(CellType::Yellow);
 
-            cells[0] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
-            cells[1] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
-            cells[2] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
-            cells[3] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
+    cells[0] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
+    cells[1] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
+    cells[2] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
+    cells[3] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
 
-            Move(0, 3);
-        };
-};
+    Move(0, 4);
+}
 
-class SBlock : public Block
+SBlock::SBlock()
 {
-    public:
-        SBlock()
-        {
-            id = GetBlockId(BlockType::SBlock);
-            color = GetCellColor(CellType::Green);
+    id = GetBlockId(BlockType::SBlock);
+    color = GetCellColor(CellType::Green);
 
-            cells[0] = { Position{0, 1}, Position{0, 2}, Position{1, 0}, Position{1, 1} };
-            cells[1] = { Position{0, 1}, Position{1, 1}, Position{1, 2}, Position{2, 2} };
-            cells[2] = { Position{1, 1}, Position{1, 2}, Position{2, 0}, Position{2, 1} };
-            cells[3] = { Position{0, 0}, Position{1, 0}, Position{1, 1}, Position{2, 1} };
+    cells[0] = { Position{0, 1}, Position{0, 2}, Position{1, 0}, Position{1, 1} };
+    cells[1] = { Position{0, 1}, Position{1, 1}, Position{1, 2}, Position{2, 2} };
+    cells[2] = { Position{1, 1}, Position{1, 2}, Position{2, 0}, Position{2, 1} };
+    cells[3] = { Position{0, 0}, Position{1, 0}, Position{1, 1}, Position{2, 1} };
 
-            Move(0, 3);
-        };
-};
+    Move(0, 3);
+}
 
-class TBlock : public Block
+TBlock::TBlock()
 {
-    public:
-        TBlock()
-        {
-            id = GetBlockId(BlockType::TBlock);
-            color = GetCellColor(CellType::Purple);
+    id = GetBlockId(BlockType::TBlock);
+    color = GetCellColor(CellType::Purple);
 
-            cells[0] = { Position{0, 1}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
-            cells[1] = { Position{0, 1}, Position{1, 1}, Position{1, 2}, Position{2, 1} };
-            cells[2] = { Position{1, 0}, Position{1, 1}, Position{1, 2}, Position{2, 1} };
-            cells[3] = { Position{0, 1}, Position{1, 0}, Position{1, 1}, Position{2, 1} };
+    cells[0] = { Position{0, 1}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
+    cells[1] = { Position{0, 1}, Position{1, 1}, Position{1, 2}, Position{2, 1} };
+    cells[2] = { Position{1, 0}, Position{1, 1}, Position{1, 2}, Position{2, 1} };
+    cells[3] = { Position{0, 1}, Position{1, 0}, Position{1, 1}, Position{2, 1} };
 
-            Move(0, 3);
-        };
-};
+    Move(0, 3);
+}
 
-class ZBlock : public Block
+ZBlock::ZBlock()
 {
-    public:
-        ZBlock()
-        {
-            id = GetBlockId(BlockType::ZBlock);
-            color = GetCellColor(CellType::Red);
+    id = GetBlockId(BlockType::ZBlock);
+    color = GetCellColor(CellType::Red);
 
-            cells[0] = { Position{0, 0}, Position{0, 1}, Position{1, 1}, Position{1, 2} };
-            cells[1] = { Position{0, 2}, Position{1, 1}, Position{1, 2}, Position{2, 1} };
-            cells[2] = { Position{1, 0}, Position{1, 1}, Position{2, 1}, Position{2, 2} };
-            cells[3] = { Position{0, 1}, Position{1, 0}, Position{1, 1}, Position{2, 0} };
+    cells[0] = { Position{0, 0}, Position{0, 1}, Position{1, 1}, Position{1, 2} };
+    cells[1] = { Position{0, 2}, Position{1, 1}, Position{1, 2}, Position{2, 1} };
+    cells[2] = { Position{1, 0}, Position{1, 1}, Position{2, 1}, Position{2, 2} };
+    cells[3] = { Position{0, 1}, Position{1, 0}, Position{1, 1}, Position{2, 0} };
 
-            Move(0, 3);
-        };
-};
+    Move(0, 3);
+}
