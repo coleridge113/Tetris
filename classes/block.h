@@ -5,6 +5,18 @@
 #include <map>
 #include <vector>
 
+enum class BlockType 
+{
+    Default = 0,
+    LBlock,
+    JBlock,
+};
+
+inline int GetBlockId(BlockType type)
+{
+    return static_cast<int>(type);
+};
+
 class Block 
 {
     public:
@@ -12,9 +24,12 @@ class Block
         int id;
         std::map<int, std::vector<Position>> cells;
         void Draw();
+        void Rotate();
 
-    private:
+    protected:
         int cellSize;
         int rotationState;
-        std::vector<Color> colors;
+        Color color;
+        BlockType blockType;
 };
+
