@@ -10,11 +10,13 @@ Block::Block()
     rotationState = 0;
     blockType = BlockType::Default;
     color = GetCellColor(CellType::Empty);
+    rowOffset = 0;
+    colOffset = 0;
 };
 
 void Block::Draw()
 {
-    std::vector<Position> tiles = cells[rotationState];
+    std::vector<Position> tiles = GetCellPositions();
     for (auto p : tiles)
     {
         int posX = p.col * cellSize + 1;
@@ -37,4 +39,21 @@ void Block::Rotate()
     } else {
         rotationState = 0;
     }
+}
+
+void Block::Move(int rows, int cols)
+{
+    rowOffset += rows;
+    colOffset += cols;
+}
+
+std::vector<Position> Block::GetCellPositions()
+{
+    std::vector<Position> tiles = cells[rotationState];
+    for (auto& t : tiles)
+    {
+        t.row += rowOffset;
+        t.col += colOffset;
+    }
+    return tiles;
 }

@@ -30,11 +30,15 @@ class Block
         std::map<int, std::vector<Position>> cells;
         void Draw();
         void Rotate();
+        void Move(int row, int col);
+        std::vector<Position> GetCellPositions();
 
     protected:
-        int cellSize;
-        int rotationState;
         Color color;
         BlockType blockType;
+        int cellSize;
+        int rotationState;
+        int rowOffset;
+        int colOffset;
 };
 
