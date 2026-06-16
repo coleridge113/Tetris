@@ -1,7 +1,6 @@
 #include "game.h"
 #include "blocks.h"
 #include "raylib.h"
-#include <iostream>
 #include <random>
 
 Game::Game()
@@ -89,6 +88,7 @@ void Game::MoveBlockDown()
     if (IsBlockOutside())
     {
         currentBlock.Move(-1, 0);
+        LockBlock();
     }
 }
 
@@ -117,4 +117,14 @@ bool Game::IsBlockOutside()
         }
     }
     return false;
+}
+
+void Game::LockBlock() {
+    const auto& cells = currentBlock.GetCellPositions();
+    for (const auto& cell : cells)
+    {
+        grid.grid[cell.row][cell.col] = currentBlock.id;
+    }
+    grid.Print();
+    GetNextBlock();
 }
