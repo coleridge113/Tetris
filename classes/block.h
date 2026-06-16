@@ -10,6 +10,11 @@ enum class BlockType
     Default = 0,
     LBlock,
     JBlock,
+    SBlock,
+    TBlock,
+    ZBlock,
+    IBlock,
+    OBlock
 };
 
 inline int GetBlockId(BlockType type)
