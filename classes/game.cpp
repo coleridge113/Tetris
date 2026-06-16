@@ -1,5 +1,7 @@
 #include "game.h"
 #include "blocks.h"
+#include "raylib.h"
+#include <iostream>
 #include <random>
 
 Game::Game()
@@ -37,4 +39,79 @@ void Game::Draw()
 {
     grid.Draw();
     currentBlock.Draw();
+}
+
+void Game::HandleInput()
+{
+    int keyPressed = GetKeyPressed();
+
+    switch (keyPressed)
+    {
+        case KEY_LEFT: 
+            MoveBlockLeft();
+            break;
+        case KEY_RIGHT: 
+            MoveBlockRight();
+            break;
+        case KEY_DOWN:
+            MoveBlockDown();
+            break;
+        case KEY_SPACE:
+            RotateBlock();
+            break;
+        case KEY_N:
+            GetNextBlock();
+            break;
+    }
+}
+
+void Game::MoveBlockLeft()
+{
+    currentBlock.Move(0, -1);
+    if (IsBlockOutside())
+    {
+        currentBlock.Move(0, 1);
+    }
+}
+
+void Game::MoveBlockRight()
+{
+    currentBlock.Move(0, 1);
+    if (IsBlockOutside())
+    {
+        currentBlock.Move(0, -1);
+    }
+}
+
+void Game::MoveBlockDown()
+{
+    currentBlock.Move(1, 0);
+    if (IsBlockOutside())
+    {
+        currentBlock.Move(-1, 0);
+    }
+}
+
+void Game::RotateBlock()
+{
+    currentBlock.Rotate();
+}
+
+void Game::GetNextBlock()
+{
+    currentBlock = nextBlock;
+    nextBlock = GetRandomBlock();
+}
+
+bool Game::IsBlockOutside()
+{
+    const auto& tiles = currentBlock.GetCellPositions();
+    for (const auto& item : tiles)
+    {
+        if (grid.IsCellOutside(item.row, item.col))
+        {
+            return true;
+        }
+    }
+    return false;
 }
