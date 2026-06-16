@@ -38,7 +38,7 @@ void Grid::Draw()
                 posY, 
                 cellSize - 1, 
                 cellSize - 1, 
-                GetCellColor(CellType::Empty)
+                GetCellColor(cellValue)
             );
         }
     }

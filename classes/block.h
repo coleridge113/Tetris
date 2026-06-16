@@ -5,7 +5,7 @@
 #include <map>
 #include <vector>
 
-enum class BlockType 
+enum class BlockType : int
 {
     Default = 0,
     LBlock,

@@ -4,7 +4,7 @@
 LBlock::LBlock()
 {
     id = GetBlockId(BlockType::LBlock);
-    color = GetCellColor(CellType::Orange);
+    color = GetCellColor(id);
 
     cells[0] = { Position{0, 2}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
     cells[1] = { Position{0, 1}, Position{1, 1}, Position{2, 1}, Position{2, 2} };
@@ -17,7 +17,7 @@ LBlock::LBlock()
 JBlock::JBlock()
 {
     id = GetBlockId(BlockType::JBlock);
-    color = GetCellColor(CellType::Blue);
+    color = GetCellColor(id);
 
     cells[0] = { Position{0, 0}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
     cells[1] = { Position{0, 1}, Position{0, 2}, Position{1, 1}, Position{2, 1} };
@@ -30,7 +30,7 @@ JBlock::JBlock()
 IBlock::IBlock()
 {
     id = GetBlockId(BlockType::IBlock);
-    color = GetCellColor(CellType::Cyan);
+    color = GetCellColor(id);
 
     cells[0] = { Position{1, 0}, Position{1, 1}, Position{1, 2}, Position{1, 3} };
     cells[1] = { Position{0, 2}, Position{1, 2}, Position{2, 2}, Position{3, 2} };
@@ -43,7 +43,7 @@ IBlock::IBlock()
 OBlock::OBlock()
 {
     id = GetBlockId(BlockType::OBlock);
-    color = GetCellColor(CellType::Yellow);
+    color = GetCellColor(id);
 
     cells[0] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
     cells[1] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
@@ -56,7 +56,7 @@ OBlock::OBlock()
 SBlock::SBlock()
 {
     id = GetBlockId(BlockType::SBlock);
-    color = GetCellColor(CellType::Green);
+    color = GetCellColor(id);
 
     cells[0] = { Position{0, 1}, Position{0, 2}, Position{1, 0}, Position{1, 1} };
     cells[1] = { Position{0, 1}, Position{1, 1}, Position{1, 2}, Position{2, 2} };
@@ -69,7 +69,7 @@ SBlock::SBlock()
 TBlock::TBlock()
 {
     id = GetBlockId(BlockType::TBlock);
-    color = GetCellColor(CellType::Purple);
+    color = GetCellColor(id);
 
     cells[0] = { Position{0, 1}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
     cells[1] = { Position{0, 1}, Position{1, 1}, Position{1, 2}, Position{2, 1} };
@@ -82,7 +82,7 @@ TBlock::TBlock()
 ZBlock::ZBlock()
 {
     id = GetBlockId(BlockType::ZBlock);
-    color = GetCellColor(CellType::Red);
+    color = GetCellColor(id);
 
     cells[0] = { Position{0, 0}, Position{0, 1}, Position{1, 1}, Position{1, 2} };
     cells[1] = { Position{0, 2}, Position{1, 1}, Position{1, 2}, Position{2, 1} };

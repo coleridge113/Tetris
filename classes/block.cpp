@@ -9,7 +9,7 @@ Block::Block()
     cellSize = 30;
     rotationState = 0;
     blockType = BlockType::Default;
-    color = GetCellColor(CellType::Empty);
+    color = GetCellColor(static_cast<int>(blockType));
     rowOffset = 0;
     colOffset = 0;
 };
