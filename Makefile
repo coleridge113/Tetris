@@ -1,5 +1,5 @@
 CXX = clang++
-CXXFLAGS = -std=c++23 -O2
+CXXFLAGS = -std=c++23 -O2 -Wall -Wextra
 INC = -I/opt/homebrew/include
 LIB = -L/opt/homebrew/lib
 LDFLAGS = -lraylib -framework OpenGL -framework Cocoa -framework IOKit
