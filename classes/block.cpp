@@ -34,7 +34,7 @@ void Block::Draw()
 
 void Block::Rotate()
 {
-    if (rotationState < 3) {
+    if (rotationState < cells.size() - 1) {
         ++rotationState;
     } else {
         rotationState = 0;
