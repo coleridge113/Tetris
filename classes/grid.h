@@ -1,15 +1,17 @@
 #pragma once
 
 #include "raylib.h"
+#include <array>
 #include <vector>
 
 class Grid
 {
     public:
+        using GridMatrix = std::array<std::array<int, 10>, 20>;
+
         Grid();
-        int grid[20][10];
+        GridMatrix grid {};
         void Print();
-        void Initialize();
         void Draw();
 
     private:

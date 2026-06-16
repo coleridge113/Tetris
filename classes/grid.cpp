@@ -8,18 +8,7 @@ Grid::Grid()
     numRows = 20;
     numCols = 10;
     cellSize = 30;
-    Initialize();
-}
 
-void Grid::Initialize()
-{
-    for (auto row = 0; row < numRows; ++row) 
-    {
-        for (auto col = 0; col < numCols; ++col) 
-        {
-            grid[row][col] = 0;
-        }
-    }
 }
 
 void Grid::Print()
@@ -41,7 +30,16 @@ void Grid::Draw()
         for (auto col = 0; col < numCols; ++col) 
         {
             int cellValue = grid[row][col];
-            DrawRectangle(col * cellSize + 1, row * cellSize + 1, cellSize - 1, cellSize - 1, cellColors[cellValue]);
+            int posX = col * cellSize + 1;
+            int posY = row * cellSize + 1;
+
+            DrawRectangle(
+                posX, 
+                posY, 
+                cellSize - 1, 
+                cellSize - 1, 
+                cellColors[cellValue]
+            );
         }
     }
 }
