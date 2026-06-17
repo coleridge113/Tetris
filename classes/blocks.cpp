@@ -4,6 +4,7 @@
 LBlock::LBlock()
 {
     id = GetBlockId(BlockType::LBlock);
+    blockType = BlockType::LBlock;
     color = GetCellColor(id);
 
     cells[0] = { Position{0, 2}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
@@ -17,6 +18,7 @@ LBlock::LBlock()
 JBlock::JBlock()
 {
     id = GetBlockId(BlockType::JBlock);
+    blockType = BlockType::JBlock;
     color = GetCellColor(id);
 
     cells[0] = { Position{0, 0}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
@@ -30,6 +32,7 @@ JBlock::JBlock()
 IBlock::IBlock()
 {
     id = GetBlockId(BlockType::IBlock);
+    blockType = BlockType::IBlock;
     color = GetCellColor(id);
 
     cells[0] = { Position{1, 0}, Position{1, 1}, Position{1, 2}, Position{1, 3} };
@@ -43,6 +46,7 @@ IBlock::IBlock()
 OBlock::OBlock()
 {
     id = GetBlockId(BlockType::OBlock);
+    blockType = BlockType::OBlock;
     color = GetCellColor(id);
 
     cells[0] = { Position{0, 0}, Position{0, 1}, Position{1, 0}, Position{1, 1} };
@@ -56,6 +60,7 @@ OBlock::OBlock()
 SBlock::SBlock()
 {
     id = GetBlockId(BlockType::SBlock);
+    blockType = BlockType::SBlock;
     color = GetCellColor(id);
 
     cells[0] = { Position{0, 1}, Position{0, 2}, Position{1, 0}, Position{1, 1} };
@@ -69,6 +74,7 @@ SBlock::SBlock()
 TBlock::TBlock()
 {
     id = GetBlockId(BlockType::TBlock);
+    blockType = BlockType::TBlock;
     color = GetCellColor(id);
 
     cells[0] = { Position{0, 1}, Position{1, 0}, Position{1, 1}, Position{1, 2} };
@@ -82,6 +88,7 @@ TBlock::TBlock()
 ZBlock::ZBlock()
 {
     id = GetBlockId(BlockType::ZBlock);
+    blockType = BlockType::ZBlock;
     color = GetCellColor(id);
 
     cells[0] = { Position{0, 0}, Position{0, 1}, Position{1, 1}, Position{1, 2} };
