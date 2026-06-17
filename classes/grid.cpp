@@ -5,13 +5,10 @@
 
 Grid::Grid()
 {
-    numRows = 20;
-    numCols = 10;
-    cellSize = 30;
 
 }
 
-void Grid::Print()
+void Grid::Print() const
 {
     for (auto row = 0; row < numRows; ++row) 
     {
@@ -23,7 +20,7 @@ void Grid::Print()
     }
 }
 
-void Grid::Draw()
+void Grid::Draw() const
 {
     for (auto row = 0; row < numRows; ++row) 
     {
@@ -44,7 +41,7 @@ void Grid::Draw()
     }
 }
 
-bool Grid::IsCellOutside(int row, int col)
+constexpr bool Grid::IsCellOutside(int row, int col) const noexcept
 {
     return !(row >= 0 && row < numRows && col >= 0 && col < numCols);
 }
@@ -54,7 +51,7 @@ bool Grid::IsCellEmpty(int row, int col)
     return grid[row][col] == 0;
 }
 
-bool Grid::IsRowFull(int row)
+bool Grid::IsRowFull(int row) const
 {
     for (int col = 0; col < numCols; ++col)
     {
