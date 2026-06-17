@@ -3,10 +3,8 @@
 #include "colors.h"
 #include <iostream>
 
-Grid::Grid()
-{
 
-}
+Grid::Grid(){}
 
 void Grid::Print() const
 {
@@ -41,7 +39,7 @@ void Grid::Draw() const
     }
 }
 
-constexpr bool Grid::IsCellOutside(int row, int col) const noexcept
+bool Grid::IsCellOutside(int row, int col) const noexcept
 {
     return !(row >= 0 && row < numRows && col >= 0 && col < numCols);
 }

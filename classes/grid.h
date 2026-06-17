@@ -18,7 +18,7 @@ class Grid
         GridMatrix grid {};
         void Print() const;
         void Draw() const;
-        constexpr bool IsCellOutside(int row, int col) const noexcept;
+        bool IsCellOutside(int row, int col) const noexcept;
         bool IsCellEmpty(int row, int col);
         int ClearFullRows();
 
