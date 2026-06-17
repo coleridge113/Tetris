@@ -24,9 +24,9 @@ void Grid::Draw() const
     {
         for (auto col = 0; col < numCols; ++col) 
         {
-            int cellValue = grid[row][col];
-            int posX = col * cellSize + 1;
-            int posY = row * cellSize + 1;
+            const int cellValue = grid[row][col];
+            const int posX = col * cellSize + 11;
+            const int posY = row * cellSize + 11;
 
             DrawRectangle(
                 posX, 

@@ -35,9 +35,9 @@ class Block
         std::vector<Position> GetCellPositions();
 
     protected:
+        static constexpr int cellSize = 30;
         Color color;
         BlockType blockType;
-        int cellSize;
         int rotationState;
         int rowOffset;
         int colOffset;

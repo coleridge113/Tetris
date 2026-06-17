@@ -2,6 +2,12 @@
 #include "classes/game.h"
 #include "raylib.h"
 
+
+constexpr int windowWidth = 500;
+constexpr int windowHeight = 620;
+constexpr int targetFPS = 60;
+constexpr double interval = 0.8;
+
 double lastUpdateTime = 0;
 
 bool EventTriggered(double interval)
@@ -17,8 +23,8 @@ bool EventTriggered(double interval)
 
 int main()
 {
-    InitWindow(300, 600, "Tetris");
-    SetTargetFPS(60);
+    InitWindow(windowWidth, windowHeight, "Tetris");
+    SetTargetFPS(targetFPS);
 
     Game game = Game();
 
@@ -29,7 +35,7 @@ int main()
 
         {
             game.HandleInput();
-            if (EventTriggered(0.8))
+            if (EventTriggered(interval))
             {
                 game.MoveBlockDown();
             }

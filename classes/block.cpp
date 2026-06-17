@@ -6,7 +6,6 @@
 
 Block::Block()
 {
-    cellSize = 30;
     rotationState = 0;
     blockType = BlockType::Default;
     color = GetCellColor(static_cast<int>(blockType));
@@ -17,10 +16,10 @@ Block::Block()
 void Block::Draw()
 {
     std::vector<Position> tiles = GetCellPositions();
-    for (auto p : tiles)
+    for (const auto& t : tiles)
     {
-        int posX = p.col * cellSize + 1;
-        int posY = p.row * cellSize + 1;
+        const int posX = t.col * cellSize + 11;
+        const int posY = t.row * cellSize + 11;
 
         DrawRectangle(
             posX, 
