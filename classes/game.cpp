@@ -10,6 +10,7 @@ Game::Game()
     currentBlock = GetRandomBlock();
     nextBlock = GetRandomBlock();
     gameOver = false;
+    score = 0;
 }
 
 Block Game::GetRandomBlock()
@@ -162,7 +163,8 @@ void Game::LockBlock()
     }
     grid.Print();
     GetNextBlock();
-    grid.ClearFullRows();
+    int completed = grid.ClearFullRows();
+    if (completed > 0) CalculateScore(completed);
 }
 
 void Game::Reset()
@@ -173,4 +175,9 @@ void Game::Reset()
     nextBlock = GetRandomBlock();
     gameOver = false;
 
+}
+
+void Game::CalculateScore(const int& completedRows)
+{
+    score += 100 + 200 * (completedRows - 1);;
 }

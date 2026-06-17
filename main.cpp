@@ -1,6 +1,7 @@
 #include "classes/colors.h"
 #include "classes/game.h"
 #include "raylib.h"
+#include <string>
 
 
 constexpr int windowWidth = 500;
@@ -35,6 +36,15 @@ int main()
         ClearBackground(GetCellColor(static_cast<int>(CellType::DarkBlue)));
 
         {
+            game.HandleInput();
+            if (EventTriggered(interval))
+            {
+                game.MoveBlockDown();
+            }
+            game.Draw();
+        }
+
+        {
             DrawTextEx(font, "Score", {360, 15}, 32, 2, WHITE);
             DrawRectangleRounded(
                 {320, 55, 170, 60}, 
@@ -42,6 +52,15 @@ int main()
                 GetCellColor(static_cast<int>(CellType::LightBlue))
             );
 
+            {
+                const char* scoreText = TextFormat("%i", game.score);
+                Vector2 textSize = MeasureTextEx(font, scoreText, 32, 2);
+                constexpr float centerX = 400.0f;
+                constexpr float textY = 70.0f;
+                const float dynamicX = centerX - (textSize.x / 2.0f);
+
+                DrawTextEx(font, scoreText, { dynamicX, textY }, 32, 2, WHITE);
+            }
 
             DrawTextEx(font, "Next Tile", {335, 150}, 32, 2, WHITE);
             DrawRectangleRounded(
@@ -53,15 +72,6 @@ int main()
             if (game.gameOver) {
                 DrawTextEx(font, "Game Over", {325, 445}, 32, 2, WHITE);
             }
-        }
-
-        {
-            game.HandleInput();
-            if (EventTriggered(interval))
-            {
-                game.MoveBlockDown();
-            }
-            game.Draw();
         }
 
         EndDrawing();

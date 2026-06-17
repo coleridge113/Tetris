@@ -12,6 +12,7 @@ class Game
         Block GetRandomBlock();
         std::vector<Block> GetAllBlocks();
         bool gameOver;
+        int score;
 
         void Draw();
         void HandleInput();
@@ -30,4 +31,5 @@ class Game
         bool BlockFits();
         void LockBlock();
         void Reset();
+        void CalculateScore(const int& completedRows);
 };
