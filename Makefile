@@ -1,13 +1,16 @@
 CXX = clang++
 CXXFLAGS = -std=c++23 -O2 -Wall -Wextra
 INC = -I/opt/homebrew/include
-LIB = -L/opt/homebrew/lib
-LDFLAGS = -lraylib -framework OpenGL -framework Cocoa -framework IOKit
+
+LDFLAGS = /opt/homebrew/lib/libraylib.a -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 
 SOURCES = main.cpp classes/*.cpp
 
 game: $(SOURCES)
-	$(CXX) $(CXXFLAGS) $(SOURCES) -o game $(INC) $(LIB) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(SOURCES) -o game $(INC) $(LDFLAGS)
+
+run:
+	./game
 
 clean:
 	rm -f game
