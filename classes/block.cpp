@@ -13,13 +13,13 @@ Block::Block()
     colOffset = 0;
 };
 
-void Block::Draw()
+void Block::Draw(int offsetX, int offsetY)
 {
     std::vector<Position> tiles = GetCellPositions();
     for (const auto& t : tiles)
     {
-        const int posX = t.col * cellSize + 11;
-        const int posY = t.row * cellSize + 11;
+        const int posX = t.col * cellSize + offsetX;
+        const int posY = t.row * cellSize + offsetY;
 
         DrawRectangle(
             posX, 
