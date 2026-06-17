@@ -13,7 +13,8 @@ enum class CellType : int
     Purple,
     Cyan,
     Blue,
-    DarkBlue
+    DarkBlue,
+    LightBlue
 };
 
 inline Color GetCellColor(int value) {
@@ -27,6 +28,7 @@ inline Color GetCellColor(int value) {
         case 6: return Color{21, 204, 209, 255};
         case 7: return Color{13, 64, 216, 255};
         case 8: return Color{44, 44, 127, 255};
+        case 9: return Color{59, 85, 162, 255};
     }
     return BLANK;
 };
