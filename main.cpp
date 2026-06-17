@@ -1,7 +1,6 @@
 #include "classes/colors.h"
 #include "classes/game.h"
 #include "raylib.h"
-#include <string>
 
 
 constexpr int windowWidth = 500;
