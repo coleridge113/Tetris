@@ -9,7 +9,7 @@ Game::Game()
     grid = Grid();
     blocks = GetAllBlocks();
     currentBlock = GetRandomBlock();
-    nextBlock = _GetSpecificBlock(BlockType::SBlock);
+    nextBlock = GetRandomBlock();
     gameOver = false;
     score = 0;
 }
@@ -184,7 +184,6 @@ void Game::LockBlock()
     {
         grid.grid[cell.row][cell.col] = currentBlock.id;
     }
-    grid.Print();
     GetNextBlock();
     int completed = grid.ClearFullRows();
     if (completed > 0) CalculateScore(completed);
