@@ -19,11 +19,11 @@ class Grid
         void Print() const;
         void Draw() const;
         bool IsCellOutside(int row, int col) const noexcept;
-        bool IsCellEmpty(int row, int col);
+        bool IsCellEmpty(int row, int col) const noexcept;
         int ClearFullRows();
 
     private:
-        bool IsRowFull(int row) const;
+        bool IsRowFull(int row) const noexcept;
         void ClearRow(int row);
         void MoveRowDown(int row, int numRows);
 };

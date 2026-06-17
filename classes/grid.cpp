@@ -44,12 +44,12 @@ bool Grid::IsCellOutside(int row, int col) const noexcept
     return !(row >= 0 && row < numRows && col >= 0 && col < numCols);
 }
 
-bool Grid::IsCellEmpty(int row, int col)
+bool Grid::IsCellEmpty(int row, int col) const noexcept
 {
     return grid[row][col] == 0;
 }
 
-bool Grid::IsRowFull(int row) const
+bool Grid::IsRowFull(int row) const noexcept
 {
     for (int col = 0; col < numCols; ++col)
     {
