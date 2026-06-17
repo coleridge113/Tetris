@@ -28,16 +28,17 @@ class Block
         Block();
         int id;
         std::map<int, std::vector<Position>> cells;
-        void Draw();
+        std::vector<Position> GetCellPositions();
+        BlockType blockType;
+
+        void Draw(int offsetX, int offsetY);
         void Rotate();
         void UndoRotate();
         void Move(int row, int col);
-        std::vector<Position> GetCellPositions();
 
     protected:
         static constexpr int cellSize = 30;
         Color color;
-        BlockType blockType;
         int rotationState;
         int rowOffset;
         int colOffset;
