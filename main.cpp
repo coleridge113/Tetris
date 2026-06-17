@@ -27,11 +27,33 @@ int main()
     SetTargetFPS(targetFPS);
 
     Game game = Game();
+    Font font = GetFontDefault();
 
     while (WindowShouldClose() == false) 
     {
         BeginDrawing();
         ClearBackground(GetCellColor(static_cast<int>(CellType::DarkBlue)));
+
+        {
+            DrawTextEx(font, "Score", {360, 15}, 32, 2, WHITE);
+            DrawRectangleRounded(
+                {320, 55, 170, 60}, 
+                0.3, 6, 
+                GetCellColor(static_cast<int>(CellType::LightBlue))
+            );
+
+
+            DrawTextEx(font, "Next Tile", {335, 150}, 32, 2, WHITE);
+            DrawRectangleRounded(
+                {320, 190, 170, 180}, 
+                0.11, 6, 
+                GetCellColor(static_cast<int>(CellType::LightBlue))
+            );
+
+            if (game.gameOver) {
+                DrawTextEx(font, "Game Over", {325, 445}, 32, 2, WHITE);
+            }
+        }
 
         {
             game.HandleInput();
