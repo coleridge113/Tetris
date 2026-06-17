@@ -11,6 +11,8 @@ class Game
         Grid grid;
         Block GetRandomBlock();
         std::vector<Block> GetAllBlocks();
+        bool gameOver;
+
         void Draw();
         void HandleInput();
         void MoveBlockLeft();
@@ -23,7 +25,9 @@ class Game
         std::vector<Block> blocks;
         Block currentBlock;
         Block nextBlock;
+
         bool IsBlockOutside();
         bool BlockFits();
         void LockBlock();
+        void Reset();
 };
