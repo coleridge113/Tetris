@@ -34,20 +34,12 @@ void Block::Draw()
 
 void Block::Rotate()
 {
-    ++rotationState;
-    if (rotationState > cells.size() - 1)
-    {
-        rotationState = 0;
-    }
+    rotationState = (rotationState + 1) % cells.size();
 }
 
 void Block::UndoRotate()
 {
-    --rotationState;
-    if (rotationState < 0)
-    {
-        rotationState = cells.size() - 1;
-    }
+    rotationState = (rotationState + cells.size() - 1) % cells.size();
 }
 
 void Block::Move(int rows, int cols)
