@@ -1,4 +1,5 @@
 #include "game.h"
+#include "block.h"
 #include "blocks.h"
 #include "raylib.h"
 #include <random>
@@ -8,7 +9,7 @@ Game::Game()
     grid = Grid();
     blocks = GetAllBlocks();
     currentBlock = GetRandomBlock();
-    nextBlock = GetRandomBlock();
+    nextBlock = _GetSpecificBlock(BlockType::SBlock);
     gameOver = false;
     score = 0;
 }
@@ -39,7 +40,29 @@ std::vector<Block> Game::GetAllBlocks()
 void Game::Draw()
 {
     grid.Draw();
-    currentBlock.Draw();
+    currentBlock.Draw(11, 11);
+    switch (nextBlock.blockType)
+    {
+        case BlockType::IBlock:
+            nextBlock.Draw(256, 258);
+            break;
+
+        case BlockType::OBlock:
+            nextBlock.Draw(255, 247);
+            break;
+
+        case BlockType::ZBlock:
+            nextBlock.Draw(272, 250);
+            break;
+
+        case BlockType::SBlock:
+            nextBlock.Draw(272, 250);
+            break;
+
+        default:
+            nextBlock.Draw(272, 240);
+            break;
+    }
 }
 
 void Game::HandleInput()
@@ -180,4 +203,18 @@ void Game::Reset()
 void Game::CalculateScore(const int& completedRows)
 {
     score += 100 + 200 * (completedRows - 1);;
+}
+
+Block Game::_GetSpecificBlock(BlockType type)
+{
+    switch (type) {
+        case BlockType::OBlock: return OBlock();
+        case BlockType::IBlock: return IBlock();
+        case BlockType::JBlock: return JBlock();
+        case BlockType::LBlock: return LBlock();
+        case BlockType::TBlock: return TBlock();
+        case BlockType::SBlock: return SBlock();
+        default:                return ZBlock();
+    }
+
 }

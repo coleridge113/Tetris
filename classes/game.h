@@ -32,4 +32,5 @@ class Game
         void LockBlock();
         void Reset();
         void CalculateScore(const int& completedRows);
+        Block _GetSpecificBlock(BlockType type);
 };
