@@ -36,15 +36,6 @@ int main()
         ClearBackground(GetCellColor(static_cast<int>(CellType::DarkBlue)));
 
         {
-            game.HandleInput();
-            if (EventTriggered(interval))
-            {
-                game.MoveBlockDown();
-            }
-            game.Draw();
-        }
-
-        {
             DrawTextEx(font, "Score", {360, 15}, 32, 2, WHITE);
             DrawRectangleRounded(
                 {320, 55, 170, 60}, 
@@ -72,6 +63,15 @@ int main()
             if (game.gameOver) {
                 DrawTextEx(font, "Game Over", {325, 445}, 32, 2, WHITE);
             }
+        }
+
+        {
+            game.HandleInput();
+            if (EventTriggered(interval))
+            {
+                game.MoveBlockDown();
+            }
+            game.Draw();
         }
 
         EndDrawing();
